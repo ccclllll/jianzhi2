@@ -21,7 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableWebMvc
 @EnableSwagger2
 @EnableAspectJAutoProxy //开启自动代理
-@ComponentScan(value = "com.scenery.web") // 必须在此种类中开启包扫描,否则无效
+
 public class WebConfig implements WebMvcConfigurer {
 
 

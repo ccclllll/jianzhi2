@@ -55,7 +55,7 @@ export class AuthService {
   }
 
   updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${BASEURL}/api/user`, user);
+    return this.http.post<User>(`${BASEURL}/api/user`, user);
   }
 
 }

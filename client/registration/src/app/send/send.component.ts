@@ -24,7 +24,6 @@ export class SendComponent implements OnInit {
   }
 
   async addJob() {
-
       const loading = await this.loadingController.create({
           message: '发布中',
           duration: 2000
@@ -34,11 +33,10 @@ export class SendComponent implements OnInit {
       this.post.user = this.user;
       this.post.updateTime = new Date().toJSON();
       this.post.jobState = '有效';
-    this.jobService.addJob(this.post).subscribe(it => {
+      this.jobService.addJob(this.post).subscribe(it => {
         loading.dismiss();
         this.post = it;
         this.presentSuccessAlert('发布成功!');
-
     }, err => {
         alert('发生未知错误');
     });
@@ -61,7 +59,6 @@ export class SendComponent implements OnInit {
                 }
             }],
         });
-
         await alert.present();
     }
 

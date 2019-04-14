@@ -58,13 +58,13 @@ public class UserResource {
     }
 
 
-    @PostMapping("register")
+    @PostMapping("/register")
     @ApiOperation(value = "注册")
     public ResponseEntity<User> register(@RequestBody User user){
         return new ResponseEntity<>(userService.saveUser(user),HttpStatus.OK);
     }
 
-    @GetMapping("user/{id}")
+    @GetMapping("/user/{id}")
     public ResponseEntity<User> user(@PathVariable("id") Long id){
         return new ResponseEntity<>(userService.findUserById(id),HttpStatus.OK);
     }
@@ -94,7 +94,7 @@ public class UserResource {
         }
     }
 
-    @PutMapping("user")
+    @PostMapping("/user")
     public ResponseEntity<User> updateUser(@RequestBody User user){
         return new ResponseEntity<>(this.userRepository.save(user),HttpStatus.OK);
     }

@@ -26,6 +26,6 @@ export class JobService {
     }
 
     jobs(jobState: string): Observable<Job[]> {
-        return this.http.get<Job[]>(`${BASEURL}/api/jobs?jobState = ${jobState}`);
+        return this.http.get<Job[]>(`${BASEURL}/api/jobs?jobState=${jobState}`);
     }
 }
