@@ -12,13 +12,16 @@ export class UserJobService {
     constructor(private http: HttpClient) {
     }
 
-
+    useJob(userJobId: number): Observable<Job[]>{
+        return this.http.get<Job[]>(`${BASEURL}/api/userjobs/${userJobId}`);
+    }
     useJobs(userId: number): Observable<Job[]>{
         return this.http.get<Job[]>(`${BASEURL}/api/userjobs?userId=${userId}`);
     }
     jobUsers(jobId: number): Observable<Job[]>{
-        return this.http.get<Job[]>(`${BASEURL}/api/userjobs?jobId=${jobId}`);
+        return this.http.get<Job[]>(`${BASEURL}/api/jobusers?jobId=${jobId}`);
     }
+
 
 
 }

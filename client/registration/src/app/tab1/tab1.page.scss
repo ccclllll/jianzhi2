@@ -2,9 +2,9 @@ $main-color: rgb(85, 203, 196);
 
 .work-wrap {
   margin-bottom: 1rem;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 0;
   width: 100%;
-  height: 100px;
+  height: 12rem;
   background-color: white;
   overflow: hidden;
 
@@ -17,11 +17,22 @@ $main-color: rgb(85, 203, 196);
 
     .name {
       width: 100%;
-      height: 60%;
+      height: 20%;
       
       font: {
         size: 23px;
         weight: 800;
+      }
+    }
+
+    .description {
+      padding: 1.5rem 0;
+      width: 100%;
+      height: 40%;
+
+      font: {
+        size: 13px;
+        weight: 200;
       }
     }
 

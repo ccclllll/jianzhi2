@@ -7,18 +7,23 @@
 </ion-header>
 
 <ion-content color="light">
-  <div class="work-wrap">
-    <div class="detail">
-      <div class="name">前端实习生</div>
-      <div class="master">
-        <ion-img src="../../assets/img/boy.png"></ion-img>
-        <span>DcySC</span>
+  <ng-container *ngFor="let item of allJob">
+    <div class="work-wrap" (click)="clickItem(item)">
+      <div class="detail">
+        <div class="name">{{ item.jobName }}</div>
+        <div class="description">
+          {{ item.jobDescribe }}
+        </div>
+        <div class="master">
+          <ion-img src="../../assets/img/boy.png"></ion-img>
+          <span>{{ item.user.username }}</span>
+        </div>
+      </div>
+      <div class="income">
+        {{ item.jobSalary }}
       </div>
     </div>
-    <div class="income">
-      200 / 天
-    </div>
-  </div>
+  </ng-container>
 
   <!-- <div class="work-wrap">
     <div class="detail">

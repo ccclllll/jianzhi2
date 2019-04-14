@@ -3,7 +3,7 @@
     <ion-title>
       列表
     </ion-title>
-    <div class="icon"> 
+    <div class="icon">
       <ion-icon name="add-circle-outline" (click)="clickIcon($event)"></ion-icon>
     </div>
   </ion-toolbar>
@@ -22,20 +22,46 @@
   </div>
 
   <div *ngIf="selectTab === 1">
-    <div class="work-wrap">
-      <div class="detail">
-        <div class="name">前端实习生</div>
-        <div class="master">
-          <ion-img src="../../assets/img/boy.png"></ion-img>
-          <span>DcySC</span>
+    <ng-container *ngFor="let item of mySend">
+      <div class="work-wrap" (click)="clickItem(item, 2)">
+        <div class="detail">
+          <div class="name">{{ item.jobName }}</div>
+          <div class="description">
+            {{ item.jobDescribe }}
+          </div>
+          <div class="master">
+            <ion-img src="../../assets/img/boy.png"></ion-img>
+            <span>{{ item.user.username }}</span>
+          </div>
+        </div>
+        <div class="income">
+          {{ item.jobSalary }}
         </div>
       </div>
-      <div class="income">
-        200 / 天
-      </div>
-    </div>
-    <ion-item *ngIf="messageList.length === 0">你目前没有发布任何活动</ion-item>
+    </ng-container>
+    <ion-item *ngIf="mySend.length === 0">你目前没有发布任何活动</ion-item>
   </div>
+
+  <div *ngIf="selectTab === 2">
+      <ng-container *ngFor="let item of myJoin">
+        <div class="work-wrap" (click)="clickItem(item, 3)">
+          <div class="detail">
+            <div class="name">{{ item.jobName }}</div>
+            <div class="description">
+              {{ item.jobDescribe }}
+            </div>
+            <div class="master">
+              <ion-img src="../../assets/img/boy.png"></ion-img>
+              <span>{{ item.user.username }}</span>
+            </div>
+          </div>
+          <div class="income">
+            {{ item.jobSalary }}
+          </div>
+        </div>
+      </ng-container>
+      <ion-item *ngIf="myJoin.length === 0">你目前没有发布任何活动</ion-item>
+    </div>
 
   <!-- <ion-card *ngIf="selectTab === 1">
       <ng-container *ngFor="let i of messageList">

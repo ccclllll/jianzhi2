@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../shared/services/message.service';
 import { AuthService } from '../shared/services/auth.service';
+import { UserJobService } from '../shared/services/UserJobService';
+import { JobService } from '../shared/services/JobService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -11,19 +14,30 @@ export class Tab2Page implements OnInit {
 
   selectTab = 1;
 
-  constructor(public messageService: MessageService) {
+  mySend = [];
+  myJoin = [];
+  user = {};
 
+  constructor(
+    public userJob: UserJobService,
+    public job: JobService,
+    public router: Router
+  ) {
   }
 
-  // doRefresh(e) {
-  //   this.messageService.getContacts(this.user.id).subscribe(it => {
-  //     console.log(it);
-  //     this.contacts = it;
-  //     e.target.complete();
-  //   });
-  // }
+  changeTab(e) {
+    this.selectTab = e;
+  }
+
+  clickItem(item, state) {
+    this.router.navigate(['/detail', item.id + '$' + state]);
+  }
 
   ionViewWillEnter() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+
+    this.userJob.useJobs(this.user.id).subscribe(it => this.myJoin = it);
+    this.job.userPost(this.user.id).subscribe(it => this.mySend = it);
   }
 
   ngOnInit() {

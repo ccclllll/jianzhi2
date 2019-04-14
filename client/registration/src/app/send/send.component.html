@@ -1,35 +1,35 @@
 <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>发布兼职</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <ion-list>
-      <ion-item>
-          <ion-label>兼职名称</ion-label>
-          <ion-input placeholder="兼职名称" [(ngModel)]="post.jobName"></ion-input>
-        </ion-item>
-      <ion-item>
-        <ion-label>兼职地点</ion-label>
-        <ion-input placeholder="兼职地点" [(ngModel)]="post.address"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label>联系方式</ion-label>
-          <ion-input placeholder="联系方式" [(ngModel)]="post.contact"></ion-input>
-      </ion-item>
-        <ion-item>
-            <ion-label>薪资</ion-label>
-            <ion-input placeholder="联系方式" [(ngModel)]="post.jobSalary"></ion-input>
-        </ion-item>
-      <ion-item>
-        <ion-label position="stacked">具体信息</ion-label>
-        <ion-textarea placeholder="具体信息" [(ngModel)]="post.jobDescribe"></ion-textarea>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-  
-  <ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>发布兼职</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-      <ion-button shap="round"  expand="full" color="primary" (click)="addJob()">发布</ion-button>
-  </ion-footer>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>兼职名称</ion-label>
+      <ion-input placeholder="兼职名称" [(ngModel)]="post.jobName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>兼职地点</ion-label>
+      <ion-input placeholder="兼职地点" [(ngModel)]="post.address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>联系方式</ion-label>
+      <ion-input placeholder="联系方式" [(ngModel)]="post.contact"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>薪资</ion-label>
+      <ion-input placeholder="联系方式" [(ngModel)]="post.jobSalary"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">具体信息</ion-label>
+      <ion-textarea placeholder="具体信息" [(ngModel)]="post.jobDescribe"></ion-textarea>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+
+  <ion-button shap="round" expand="full" color="primary" (click)="addJob()">发布</ion-button>
+</ion-footer>

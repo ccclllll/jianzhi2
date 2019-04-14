@@ -28,4 +28,8 @@ export class JobService {
     jobs(jobState: string): Observable<Job[]> {
         return this.http.get<Job[]>(`${BASEURL}/api/jobs?jobState=${jobState}`);
     }
+
+    getDetailById(jobId: number) {
+        return this.http.get<Job[]>(`${BASEURL}/api/job/${jobId}`);
+    }
 }
