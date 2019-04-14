@@ -1,4 +1,5 @@
 import {User} from "./User";
+import {Score} from "./score";
 
 export class Job{
     id: number;
@@ -10,6 +11,7 @@ export class Job{
     address: string;
     contact: string;
     updateTime: string;
+
     constructor(arg?:{
         id: number,
         jobName: string,
@@ -20,6 +22,7 @@ export class Job{
         address: string,
         contact: string,
         updateTime: string,
+
     }){
         if(!arg){
             return;
@@ -34,6 +37,7 @@ export class Job{
         this.address = arg.address;
         this.updateTime = arg.updateTime;
         this.contact = arg.contact;
+
     }
 
 }

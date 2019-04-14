@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'chat/:otherId', loadChildren: './chat/chat.module#ChatPageModule' },
   { path: 'detail/:jobId', component: DetailComponent },
   { path: 'send', component: SendComponent },
-  { path: 'evaluate', component: EvaluateComponent }
+  { path: 'evaluate/:userJobId', component: EvaluateComponent }
 ];
 @NgModule({
   imports: [

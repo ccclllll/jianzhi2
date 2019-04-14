@@ -12,17 +12,15 @@
     </ion-item>
     <ion-item>
       <ion-label>评分</ion-label>
-      <ion-input placeholder="评分" [(ngModel)]="post.name"></ion-input>
+      <ion-input placeholder="评分" [(ngModel)]="userJob.score.score"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">评价详情</ion-label>
-      <ion-textarea placeholder="评价详情" [(ngModel)]="post.details"></ion-textarea>
+      <ion-textarea placeholder="评价详情" [(ngModel)]="userJob.score.comment"></ion-textarea>
     </ion-item>
   </ion-list>
 </ion-content>
 
-<ion-footer (click)="clickFooter()">
-  <ion-toolbar color="primary">
-    <ion-title>评价</ion-title>
-  </ion-toolbar>
+<ion-footer>
+  <ion-button shap="round"  expand="full" color="primary" (click)="addScore()">发布</ion-button>
 </ion-footer>

@@ -32,7 +32,7 @@ export class SendComponent implements OnInit {
 
       this.post.user = this.user;
       this.post.updateTime = new Date().toJSON();
-      this.post.jobState = '有效';
+      this.post.jobState = 'active';
       this.jobService.addJob(this.post).subscribe(it => {
         loading.dismiss();
         this.post = it;

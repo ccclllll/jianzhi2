@@ -24,8 +24,7 @@ public class JobService {
     }
 
     public void deleteJob(Long jobId){
-
-        userJobRepository.deleteAllByJobId(jobId); //
+        userJobRepository.deleteAllByJobId(jobId);
         jobRepository.deleteById(jobId);
     }
 

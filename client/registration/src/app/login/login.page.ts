@@ -29,14 +29,15 @@ export class LoginPage {
         localStorage.setItem('isLoggedin', 'true');
         // this.navCtrl.push('TabsPage');
         loading.dismiss();
-        if (it.code == '-1') {
-          this.presentAlert('用户名或密码错误！')
+        if (it.user === null) {
+          this.presentAlert('用户名或密码错误！');
         } else {
           this.router.navigateByUrl('tabs');
 
         }
       }, err => {
-        this.presentAlert('请检查网络！')
+        loading.dismiss();
+        this.presentAlert('请检查网络！');
       }
     );
     console.log(this.loginVM);

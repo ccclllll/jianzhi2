@@ -23,6 +23,15 @@ public class JobResource {
         return new ResponseEntity<>(jobService.userPost(id), HttpStatus.OK);
     }
 
+    @GetMapping("/job/{id}")
+    public ResponseEntity<Job> job(@PathVariable(value = "id") Long id){
+        Job job = null;
+        if(jobRepository.findById(id).isPresent()){
+            job = jobRepository.findById(id).get();
+        }
+        return new ResponseEntity<>(job,HttpStatus.OK);
+    }
+
     @PostMapping("job")
     public ResponseEntity<Job> saveJob(@RequestBody Job job){
         return new ResponseEntity<>(jobService.saveJob(job),HttpStatus.OK);
