@@ -8,4 +8,5 @@ import java.util.List;
 public interface JobRepository extends CrudRepository<Job,Long>{
    List<Job> findAllByUserId(Long id);
 
+   List<Job> findAllByJobState(String state);
 }

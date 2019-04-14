@@ -13,15 +13,19 @@ export class JobService {
 
     }
 
-    userPost(userId: number): Observable<Job[]>{
+    userPost(userId: number): Observable<Job[]> {
         return this.http.get<Job[]>(`${BASEURL}/api/user_post?id=${userId}`);
     }
 
-    addJob(job:Job){
-        return this.http.post(`${BASEURL}/api/job`,job);
+    addJob(job: Job) {
+        return this.http.post(`${BASEURL}/api/job`, job);
     }
 
-    deleteJob(jobId: number){
+    deleteJob(jobId: number) {
         return this.http.delete(`${BASEURL}/api/job?jobId=${jobId}`);
+    }
+
+    jobs(jobState: string): Observable<Job[]> {
+        return this.http.get<Job[]>(`${BASEURL}/api/jobs?jobState = ${jobState}`);
     }
 }

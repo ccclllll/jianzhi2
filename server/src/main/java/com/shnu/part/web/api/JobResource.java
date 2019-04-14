@@ -1,6 +1,7 @@
 package com.shnu.part.web.api;
 
 import com.shnu.part.domain.Job;
+import com.shnu.part.repositiry.JobRepository;
 import com.shnu.part.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,8 @@ import java.util.List;
 public class JobResource {
     @Autowired
     private JobService jobService;
+    @Autowired
+    private JobRepository jobRepository;
     @GetMapping("user_post")
     public ResponseEntity<List<Job>> userPost(@RequestParam Long id){
         return new ResponseEntity<>(jobService.userPost(id), HttpStatus.OK);
@@ -29,6 +32,11 @@ public class JobResource {
     public ResponseEntity<Void> deleteJob(@RequestParam Long jobId){
         jobService.deleteJob(jobId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("jobs")
+    public ResponseEntity<List<Job>> jobs(@RequestParam String jobState){
+        return new ResponseEntity<>(jobRepository.findAllByJobState(jobState),HttpStatus.OK);
     }
 
 }
