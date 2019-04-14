@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>兼职详情</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -41,16 +44,17 @@
   </div>
 
   <div class="list" *ngIf="joiner.length === 0">
-      <div class="item">
-        <div class="person">
-          <div class="name">该兼职目前没有参与者</div>
-        </div>
+    <div class="item">
+      <div class="person">
+        <div class="name">该兼职目前没有参与者</div>
       </div>
+    </div>
   </div>
 
 </ion-content>
 
 <ion-footer>
-  <ion-button *ngIf="state === 1 && jobObj?.user?.id !== user.id && state !== 4" shap="round" expand="full" color="primary" (click)="applyJob()">申请兼职</ion-button>
+  <ion-button *ngIf="state === 1 && jobObj?.user?.id !== user.id && state !== 4" shap="round" expand="full"
+    color="primary" (click)="applyJob()">申请兼职</ion-button>
   <ion-button *ngIf="state === 4" shap="round" expand="full" color="primary" disabled>已申请</ion-button>
 </ion-footer>
