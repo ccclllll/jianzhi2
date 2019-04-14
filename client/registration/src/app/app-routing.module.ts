@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: '', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'chat/:otherId', loadChildren: './chat/chat.module#ChatPageModule' },
-  { path: 'detail', component: DetailComponent },
+  { path: 'detail/:jobId', component: DetailComponent },
   { path: 'send', component: SendComponent },
   { path: 'evaluate', component: EvaluateComponent }
 ];

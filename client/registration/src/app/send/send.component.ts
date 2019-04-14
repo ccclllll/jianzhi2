@@ -3,6 +3,7 @@ import {Job} from "../shared/domain/Job";
 import {JobService} from "../shared/services/JobService";
 import {AlertController, LoadingController} from "@ionic/angular";
 import {User} from "../shared/domain/User";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-send',
@@ -15,7 +16,7 @@ export class SendComponent implements OnInit {
 
   user: User;
   constructor(private jobService: JobService,public loadingController: LoadingController,
-    public alertController: AlertController) { }
+    public alertController: AlertController,public router: Router) { }
 
   ngOnInit() {
 
@@ -35,18 +36,30 @@ export class SendComponent implements OnInit {
       this.post.jobState = '有效';
     this.jobService.addJob(this.post).subscribe(it => {
         loading.dismiss();
-        this.presentAlert('发布成功!');
+        this.post = it;
+        this.presentSuccessAlert('发布成功!');
+
     }, err => {
-      this.presentAlert('发布失败，请检查网络！');
+        alert('发生未知错误');
     });
   }
 
 
-    async presentAlert(text) {
+    async presentSuccessAlert(text) {
         const alert = await this.alertController.create({
             header: '消息',
             message: text,
-            buttons: ['确认']
+            buttons: [{
+                text: '继续发布',
+                handler: () => {
+                    this.post = new Job();
+                }
+            }, {
+                text: '查看',
+                handler: () => {
+                    this.router.navigate(['detail', this.post.id]);
+                }
+            }],
         });
 
         await alert.present();

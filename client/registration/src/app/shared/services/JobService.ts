@@ -17,8 +17,8 @@ export class JobService {
         return this.http.get<Job[]>(`${BASEURL}/api/user_post?id=${userId}`);
     }
 
-    addJob(job: Job) {
-        return this.http.post(`${BASEURL}/api/job`, job);
+    addJob(job: Job): Observable<Job> {
+        return this.http.post<Job>(`${BASEURL}/api/job`, job);
     }
 
     deleteJob(jobId: number) {

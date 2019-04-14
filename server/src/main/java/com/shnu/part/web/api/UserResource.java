@@ -1,6 +1,7 @@
 package com.shnu.part.web.api;
 
 import com.shnu.part.domain.User;
+import com.shnu.part.repositiry.UserRepository;
 import com.shnu.part.service.UserService;
 import com.shnu.part.web.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
@@ -27,6 +28,8 @@ public class UserResource {
 
     @Autowired
     AuthenticationManager authenticationManager;
+    @Autowired
+    private UserRepository userRepository;
 
     /**
      * 调用spring security 对用户名和密码进行验证 通过则返回token
@@ -91,4 +94,8 @@ public class UserResource {
         }
     }
 
+    @PutMapping("user")
+    public ResponseEntity<User> updateUser(@RequestBody User user){
+        return new ResponseEntity<>(this.userRepository.save(user),HttpStatus.OK);
+    }
 }

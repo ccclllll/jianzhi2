@@ -34,7 +34,7 @@ export class AuthService {
     const date = (new Date()).getTime();
     localStorage.setItem('loginTime', date + '');
     localStorage.setItem('userVM', JSON.stringify(userVM));
-    localStorage.setItem('user',JSON.stringify(it.user));
+    localStorage.setItem('user', JSON.stringify(it.user));
   }
 
   getUser(): Observable<any> {
@@ -50,7 +50,12 @@ export class AuthService {
     localStorage.removeItem('userVM');
   }
 
-  register(user:User): Observable<any> {
+  register(user: User): Observable<any> {
     return this.http.post(`${BASEURL}/api/register`,user);
   }
+
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(`${BASEURL}/api/user`, user);
+  }
+
 }
