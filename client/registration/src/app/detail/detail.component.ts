@@ -43,7 +43,14 @@ export class DetailComponent implements OnInit {
     this.state = +jobId[1];
 
     this.job.getDetailById(this.id).subscribe(it => this.jobObj = it);
-    this.userJob.jobUsers(this.id).subscribe(it => this.joiner = it);
+    this.userJob.jobUsers(this.id).subscribe(it => {
+      this.joiner = it;
+      it.forEach(val => {
+        if (val.user.id === this.user.id) {
+          this.state = 4;
+        }
+      });
+    });
   }
 
   ionViewWillEnter() {

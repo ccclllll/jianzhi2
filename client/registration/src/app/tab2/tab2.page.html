@@ -25,42 +25,42 @@
     <ng-container *ngFor="let item of mySend">
       <div class="work-wrap" (click)="clickItem(item, 2)">
         <div class="detail">
-          <div class="name">{{ item.jobName }}</div>
+          <div class="name">{{ item?.jobName }}</div>
           <div class="description">
-            {{ item.jobDescribe }}
+            {{ item?.jobDescribe }}
           </div>
           <div class="master">
             <ion-img src="../../assets/img/boy.png"></ion-img>
-            <span>{{ item.user.username }}</span>
+            <span>{{ item?.user?.username }}</span>
           </div>
         </div>
         <div class="income">
-          {{ item.jobSalary }}
+          {{ item?.jobSalary }}
         </div>
       </div>
     </ng-container>
-    <ion-item *ngIf="mySend.length === 0">你目前没有发布任何活动</ion-item>
+    <ion-item *ngIf="mySend?.length === 0">你目前没有发布任何活动</ion-item>
   </div>
 
   <div *ngIf="selectTab === 2">
       <ng-container *ngFor="let item of myJoin">
         <div class="work-wrap" (click)="clickItem(item, 3)">
           <div class="detail">
-            <div class="name">{{ item.job.jobName }}</div>
+            <div class="name">{{ item?.job?.jobName }}</div>
             <div class="description">
               {{ item.job.jobDescribe }}
             </div>
             <div class="master">
               <ion-img src="../../assets/img/boy.png"></ion-img>
-              <span>{{ item.job.user.username }}</span>
+              <span>{{ item?.job?.user?.username }}</span>
             </div>
           </div>
           <div class="income">
-            {{ item.job.jobSalary }}
+            {{ item?.job?.jobSalary }}
           </div>
         </div>
       </ng-container>
-      <ion-item *ngIf="myJoin.length === 0">你目前没有发布任何活动</ion-item>
+      <ion-item *ngIf="myJoin?.length === 0">你目前没有发布任何活动</ion-item>
     </div>
 
   <!-- <ion-card *ngIf="selectTab === 1">

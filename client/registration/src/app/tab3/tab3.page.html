@@ -15,27 +15,27 @@
       </div>
     <div class="item">
       <div class="title">姓名</div>
-      <div class="item-content" *ngIf="!edit">{{ user.username }}</div>
-      <ion-input class="input" placeholder="姓名" [(ngModel)]="user.username" *ngIf="edit"></ion-input>
+      <div class="item-content" *ngIf="!edit">{{ user?.username }}</div>
+      <ion-input class="input" placeholder="姓名" [(ngModel)]="user?.username" *ngIf="edit"></ion-input>
     </div>
     <div class="item">
       <div class="title">性别</div>
-      <div class="item-content" *ngIf="!edit">{{ user.sex }}</div>
-      <ion-input class="input" placeholder="性别" [(ngModel)]="user.sex" *ngIf="edit"></ion-input>
+      <div class="item-content" *ngIf="!edit">{{ user?.sex }}</div>
+      <ion-input class="input" placeholder="性别" [(ngModel)]="user?.sex" *ngIf="edit"></ion-input>
     </div>
     <div class="item">
       <div class="title">出生日期</div>
-      <div class="item-content" *ngIf="!edit">{{ user.bornDate }}</div>
-      <ion-input class="input" placeholder="出生日期" [(ngModel)]="user.bornDate" *ngIf="edit"></ion-input>
+      <div class="item-content" *ngIf="!edit">{{ user?.bornDate }}</div>
+      <ion-input class="input" placeholder="出生日期" [(ngModel)]="user?.bornDate" *ngIf="edit"></ion-input>
     </div>
     <div class="item">
       <div class="title">手机</div>
-      <div class="item-content">{{ user.phone }}</div>
+      <div class="item-content">{{ user?.phone }}</div>
     </div>
     <div class="item">
       <div class="title">学校</div>
-      <div class="item-content" *ngIf="!edit">{{ user.school }}</div>
-      <ion-input class="input" placeholder="学校" [(ngModel)]="user.school" *ngIf="edit"></ion-input>
+      <div class="item-content" *ngIf="!edit">{{ user?.school }}</div>
+      <ion-input class="input" placeholder="学校" [(ngModel)]="user?.school" *ngIf="edit"></ion-input>
     </div>
  </div>
 </ion-content>

@@ -35,7 +35,7 @@
           <ion-img src="../../assets/img/girl.png"></ion-img>
           <div class="name">{{ item?.user?.username }}</div>
         </div>
-        <div *ngIf="state === 2 || jobObj.user.id === user.id" class="btn">同意</div>
+        <div *ngIf="state === 2 || jobObj?.user?.id === user.id" class="btn">同意</div>
       </div>
     </ng-container>
   </div>
@@ -51,6 +51,6 @@
 </ion-content>
 
 <ion-footer>
-
-  <ion-button *ngIf="state === 1 && jobObj.user.id !== user.id" shap="round" expand="full" color="primary" (click)="applyJob()">申请兼职</ion-button>
+  <ion-button *ngIf="state === 1 && jobObj?.user?.id !== user.id && state !== 4" shap="round" expand="full" color="primary" (click)="applyJob()">申请兼职</ion-button>
+  <ion-button *ngIf="state === 4" shap="round" expand="full" color="primary" disabled>已申请</ion-button>
 </ion-footer>
