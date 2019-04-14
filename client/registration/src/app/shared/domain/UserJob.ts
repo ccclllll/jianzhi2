@@ -15,6 +15,10 @@ export class UserJob{
         state: number,
         score: Score
     }){
+        if (!arg) {
+            return;
+        }
+
         this.id = arg.id;
         this.job = arg.job;
         this.user = arg.user;

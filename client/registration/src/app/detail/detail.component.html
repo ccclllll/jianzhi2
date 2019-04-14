@@ -8,20 +8,20 @@
   <div class="container">
     <div class="item">
       <div class="title">发布者</div>
-      <div class="item-content">{{ jobObj.user.username }}</div>
+      <div class="item-content">{{ jobObj?.user?.username }}</div>
     </div>
     <div class="item">
       <div class="title">兼职地点</div>
-      <div class="item-content">{{ jobObj.address }}</div>
+      <div class="item-content">{{ jobObj?.address }}</div>
     </div>
     <div class="item">
       <div class="title">联系方式</div>
-      <div class="item-content">{{ jobObj.contact }}</div>
+      <div class="item-content">{{ jobObj?.contact }}</div>
     </div>
     <div class="item">
       <div class="title">具体信息</div>
       <div class="item-content">
-        {{ jobObj.jobDescribe }}
+        {{ jobObj?.jobDescribe }}
       </div>
     </div>
   </div>
@@ -33,9 +33,9 @@
       <div class="item">
         <div class="person">
           <ion-img src="../../assets/img/girl.png"></ion-img>
-          <div class="name">{{ item.user.username }}</div>
+          <div class="name">{{ item?.user?.username }}</div>
         </div>
-        <div *ngIf="state === 2" class="btn">同意</div>
+        <div *ngIf="state === 2 || jobObj.user.id === user.id" class="btn">同意</div>
       </div>
     </ng-container>
   </div>
@@ -52,5 +52,5 @@
 
 <ion-footer>
 
-  <ion-button *ngIf="state === 1" shap="round" expand="full" color="primary" (click)="applyJob()">申请兼职</ion-button>
+  <ion-button *ngIf="state === 1 && jobObj.user.id !== user.id" shap="round" expand="full" color="primary" (click)="applyJob()">申请兼职</ion-button>
 </ion-footer>

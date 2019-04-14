@@ -46,17 +46,17 @@
       <ng-container *ngFor="let item of myJoin">
         <div class="work-wrap" (click)="clickItem(item, 3)">
           <div class="detail">
-            <div class="name">{{ item.jobName }}</div>
+            <div class="name">{{ item.job.jobName }}</div>
             <div class="description">
-              {{ item.jobDescribe }}
+              {{ item.job.jobDescribe }}
             </div>
             <div class="master">
               <ion-img src="../../assets/img/boy.png"></ion-img>
-              <span>{{ item.user.username }}</span>
+              <span>{{ item.job.user.username }}</span>
             </div>
           </div>
           <div class="income">
-            {{ item.jobSalary }}
+            {{ item.job.jobSalary }}
           </div>
         </div>
       </ng-container>

@@ -30,7 +30,11 @@ export class Tab2Page implements OnInit {
   }
 
   clickItem(item, state) {
-    this.router.navigate(['/detail', item.id + '$' + state]);
+    if (state === 2) {
+      this.router.navigate(['/detail', item.id + '$' + state]);
+    } else {
+      this.router.navigate(['/detail', item.job.id + '$' + state]);
+    }
   }
 
   ionViewWillEnter() {
@@ -38,6 +42,10 @@ export class Tab2Page implements OnInit {
 
     this.userJob.useJobs(this.user.id).subscribe(it => this.myJoin = it);
     this.job.userPost(this.user.id).subscribe(it => this.mySend = it);
+  }
+
+  clickIcon() {
+    this.router.navigate(['/send']);
   }
 
   ngOnInit() {
