@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserJobService } from '../shared/services/UserJobService';
 import { UserJob } from '../shared/domain/UserJob';
 import { Job } from '../shared/domain/Job';
+import { User } from '../shared/domain/User';
 
 @Component({
   selector: 'app-detail',
@@ -14,9 +15,9 @@ export class DetailComponent implements OnInit {
 
   id;
   state;
-  jobObj = {};
+  jobObj = new Job();
   joiner = [];
-  user = {};
+  user = new User();
 
   constructor(
     private route: ActivatedRoute,
@@ -28,11 +29,12 @@ export class DetailComponent implements OnInit {
   applyJob() {
     const userJob = new UserJob({
       id: 0,
-      job: Job,
-      user: User,
+      job: this.jobObj,
+      user: this.user,
       state: 1,
       score: null
     });
+    this.userJob.saveUserJob(userJob).subscribe(it => console.log(it));
   }
 
   ngOnInit() {
